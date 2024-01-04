@@ -1,15 +1,12 @@
 @file:Suppress("UnstableApiUsage")
 
-import mythicaltemplate.Properties
-import com.google.gson.GsonBuilder
-import mythicaltemplate.MythicalMaven
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.*
 import java.util.function.Function
-import javax.imageio.ImageIO
-import javax.lang.model.element.Modifier
+import mythicaltemplate.Properties
+import mythicaltemplate.MythicalMaven
 
 
 plugins {
@@ -21,7 +18,8 @@ plugins {
     `maven-publish`
 }
 version = "1.0.0"
-base.archivesName.set("${Properties.MOD_NAME}")
+base.archivesName.set(Properties.MOD_NAME)
+val minecraftVersion = Properties.MINECRAFT_VERSION
 
 loom {
     mixin.defaultRefmapName.set("mixins.${Properties.MOD_ID}.refmap.json")
@@ -65,8 +63,6 @@ repositories {
         }
     }
 }
-
-val minecraftVersion = "1.20.1"
 
 dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")
@@ -155,8 +151,8 @@ publishing {
 }
 
 private fun getMythicalCredentials(): Pair<String?, String?> {
-    var username = (project.findProperty("mythicalUsername") ?: System.getenv("MYTHICAL_USERNAME") ?: MythicalMaven.ID ?: "") as String?
-    var password = (project.findProperty("mythicalPassword") ?: System.getenv("MYTHICAL_PASSWORD") ?: MythicalMaven.PASS ?: "") as String?
+    val username = (project.findProperty("mythicalUsername") ?: System.getenv("MYTHICAL_USERNAME") ?: MythicalMaven.ID ?: "") as String?
+    val password = (project.findProperty("mythicalPassword") ?: System.getenv("MYTHICAL_PASSWORD") ?: MythicalMaven.PASS ?: "") as String?
     return Pair(username, password)
 }
 
