@@ -1,7 +1,6 @@
-package com.mythicalnetwork.mythicaltemplate
+package com.mythicalnetwork.$mod_id$
 
 import com.mojang.logging.LogUtils
-import net.fabricmc.api.ModInitializer
 
 
 /**

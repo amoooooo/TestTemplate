@@ -15,7 +15,7 @@
   },
   "entrypoints": {
     "main": [
-      "$mod_name$"
+      "$mod_groud$.$mod_name$"
     ]
   },
   "depends": {

@@ -1,4 +1,4 @@
-package com.mythicalnetwork.mythicaltemplate
+package com.mythicalnetwork.$mod_id$
 
 import io.wispforest.owo.config.annotation.Config
 import io.wispforest.owo.config.annotation.Modmenu
