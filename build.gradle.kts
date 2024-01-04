@@ -161,7 +161,6 @@ private fun getMythicalCredentials(): Pair<String?, String?> {
 }
 
 tasks.create("hydrate") {
-
     doLast {
         val applyFileReplacements: Function<String, String> = Function { path ->
             path.replace("\$mod_name$", Properties.MOD_NAME)
