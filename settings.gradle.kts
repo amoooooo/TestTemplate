@@ -1,4 +1,6 @@
-rootProject.name = "MythicalTemplate"
+import mythicaltemplate.Properties
+
+rootProject.name = Properties.MOD_NAME
 
 pluginManagement.repositories {
     maven("https://maven.fabricmc.net/")
