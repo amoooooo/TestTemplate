@@ -24,7 +24,7 @@ val minecraftVersion = Properties.MINECRAFT_VERSION
 loom {
     mixin.defaultRefmapName.set("mixins.${Properties.MOD_ID}.refmap.json")
     interfaceInjection.enableDependencyInterfaceInjection.set(true)
-    if(file("src/main/resources/${Properties.MOD_ID}.accesswidener").exists()){
+    if (file("src/main/resources/${Properties.MOD_ID}.accesswidener").exists()) {
         accessWidenerPath.set(file("src/main/resources/${Properties.MOD_ID}.accesswidener"))
     }
 }
@@ -168,30 +168,28 @@ tasks.create("hydrate") {
                 .replace("\$mod_id$", Properties.MOD_ID)
                 .replace("\$mod_group$", Properties.MOD_GROUP.replace(".", "/"))
         }
-        subprojects.forEach { subProject ->
-            subProject.extensions.getByType<JavaPluginExtension>().sourceSets.forEach { sourceSet ->
-                sourceSet.allSource.sourceDirectories.asFileTree.forEach { file ->
-                    val newPath = Paths.get(applyPathReplacements.apply(file.path))
-                    Files.createDirectories(newPath.parent)
+        project.extensions.getByType<JavaPluginExtension>().sourceSets.forEach { sourceSet ->
+            sourceSet.allSource.sourceDirectories.asFileTree.forEach { file ->
+                val newPath = Paths.get(applyPathReplacements.apply(file.path))
+                Files.createDirectories(newPath.parent)
 
-                    if (!file.path.endsWith(".png")) {
-                        val lines =
-                            Files.readAllLines(file.toPath(), StandardCharsets.UTF_8)
-                                .map { applyFileReplacements.apply(it) }
-                        Files.deleteIfExists(file.toPath())
-                        Files.write(
-                            newPath,
-                            lines
-                        )
-                    } else {
-                        Files.move(file.toPath(), newPath)
-                    }
+                if (!file.path.endsWith(".png")) {
+                    val lines =
+                        Files.readAllLines(file.toPath(), StandardCharsets.UTF_8)
+                            .map { applyFileReplacements.apply(it) }
+                    Files.deleteIfExists(file.toPath())
+                    Files.write(
+                        newPath,
+                        lines
+                    )
+                } else {
+                    Files.move(file.toPath(), newPath)
+                }
 
-                    var parent = file.parentFile
-                    while (parent.listFiles()?.isEmpty() == true) {
-                        Files.deleteIfExists(parent.toPath())
-                        parent = parent.parentFile
-                    }
+                var parent = file.parentFile
+                while (parent.listFiles()?.isEmpty() == true) {
+                    Files.deleteIfExists(parent.toPath())
+                    parent = parent.parentFile
                 }
             }
         }
