@@ -119,9 +119,6 @@ dependencies {
     modImplementation("dev.lightdream:command-manager-fabric-1-20:6.1.4")
 
     modCompileOnly("mcp.mobius.waila:wthit-api:fabric-8.4.3")
-
-    modImplementation("com.cobblemon:fabric:MythicalCobblemon-1.4.1+1.20.1")
-    modImplementation("com.mythicalnetwork:MythicalMod:1.9.0")
 }
 
 tasks.processResources {
