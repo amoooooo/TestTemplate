@@ -99,6 +99,9 @@ dependencies {
 //    modImplementation("net.impactdev.impactor.api:economy:5.1.1-SNAPSHOT")
 //    modImplementation("net.impactdev.impactor.api:text:5.1.1-SNAPSHOT")
 
+    // Polymer
+//    modImplementation("eu.pb4:polymer-core:0.5.18+1.20.1")
+
     // Database Storage
 //    implementation(include("org.mongodb:mongodb-driver-sync:4.11.0")!!)
 //    implementation(include("org.mongodb:mongodb-driver-core:4.11.0")!!)
