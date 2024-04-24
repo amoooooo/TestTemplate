@@ -1,4 +1,4 @@
-package com.mythicalnetwork.$mod_id$
+package com.pokeskies.$mod_id$
 
 import com.mojang.logging.LogUtils
 

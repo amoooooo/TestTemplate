@@ -3,16 +3,10 @@
   "id": "$mod_id$",
   "version": "${version}",
   "name": "$mod_name$",
-  "description": "Content for Mythical Network Cobblemon",
+  "description": "Template mod for PokeSkies",
   "authors": [
-    "Amo",
-    "Stampede"
+    "AmoAster"
   ],
-  "contact": {
-    "homepage": "https://shop.mythicalnetwork.com/",
-    "issues": "https://github.com/QuiltMC/quilt-template-mod/issues",
-    "sources": "https://github.com/PokeNinjas"
-  },
   "entrypoints": {
     "main": [
       "$mod_groud$.$mod_name$"
