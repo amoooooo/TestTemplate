@@ -5,7 +5,8 @@
   "name": "$mod_name$",
   "description": "Template mod for PokeSkies",
   "authors": [
-    "AmoAster"
+    "AmoAster",
+    "Stampede"
   ],
   "entrypoints": {
     "main": [
